@@ -38,9 +38,9 @@ const DEPOIMENTOS = [
   },
   {
     nome: 'Cliente satisfeito',
-    local: 'Bom Jardim - RJ',
-    estrelas: 4,
-    texto: 'Bom atendimento e serviço bem executado na instalação industrial. Só demorou um pouco pra agendar, mas valeu a espera.',
+    local: 'Cordeiro - RJ',
+    estrelas: 5,
+    texto: 'Bom atendimento e serviço bem executado na instalação industrial. ',
   },
   {
     nome: 'Cliente satisfeito',
