@@ -19,34 +19,34 @@ const DEPOIMENTOS = [
     texto: 'Serviço rápido, limpo e caprichado. O Walter explicou tudo e deixou a instalação segura. Recomendo!',
   },
   {
-    nome: 'Morador de condomínio',
-    local: 'Nova Friburgo - RJ',
+    nome: 'Cliente satisfeito',
+    local: 'Bom Jardim - RJ',
     estrelas: 5,
     texto: 'Contratamos para revisar o quadro de distribuição do prédio. Trabalho pontual, organizado e dentro da norma.',
   },
   {
-    nome: 'Proprietário de comércio local',
+    nome: 'Cliente satisfeito',
     local: 'Nova Friburgo - RJ',
     estrelas: 5,
     texto: 'Instalação elétrica da loja ficou impecável. Preço justo e sem enrolação — fechou exatamente o que foi orçado.',
   },
   {
-    nome: 'Síndico de prédio',
-    local: 'Nova Friburgo - RJ',
+    nome: 'Cliente satisfeito',
+    local: 'Rio de Janeiro - RJ',
     estrelas: 5,
     texto: 'Laudo técnico e medição feitos com atenção aos detalhes. Explicou cada ponto do relatório antes de fechar.',
   },
   {
-    nome: 'Cliente da Região Serrana',
+    nome: 'Cliente satisfeito',
     local: 'Bom Jardim - RJ',
     estrelas: 4,
     texto: 'Bom atendimento e serviço bem executado na instalação industrial. Só demorou um pouco pra agendar, mas valeu a espera.',
   },
   {
-    nome: 'Dono de sítio',
-    local: 'Nova Friburgo - RJ',
+    nome: 'Cliente satisfeito',
+    local: 'Campos dos Goytacazes - RJ',
     estrelas: 5,
-    texto: 'Instalou a tomada com proteção para o carregador do meu carro elétrico. Rápido, seguro e explicou tudo direitinho.',
+    texto: 'Serviço rápido, seguro e muito bem feito.',
   },
   // { nome: '...', local: '...', estrelas: 5, texto: '...' }, // foto: 'assets/images/cliente-2.jpg' opcional
 ];
