@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# [SUBSTITUIR o domínio quando publicar]
+Sitemap: https://www.waltereletricista.com.br/sitemap.xml

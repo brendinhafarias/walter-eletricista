@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Walter Eletricista">
+  <title>Walter Eletricista</title>
+  <rect width="64" height="64" rx="14" fill="#1A1D23"/>
+  <rect x="8" y="8" width="48" height="48" rx="12" fill="#F5C518"/>
+  <path d="M36 14 L20 40 h11 l-5 16 20-28 h-11 z" fill="#14161B"/>
+</svg>

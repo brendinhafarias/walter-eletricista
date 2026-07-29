@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Tema (modo escuro / claro)
+   -----------------------------------------------------------------------
+   Escuro é o padrão (identidade visual da marca). O modo claro entra via
+   [data-theme="light"] no <html>, alternado pelo botão no header (js/main.js)
+   e persistido em localStorage. Sem JS, respeitamos prefers-color-scheme.
+   Valores em "R G B" (sem vírgula) para funcionar com rgb(var(--x) / <alpha-value>).
+--------------------------------------------------------------------------- */
+:root {
+  --bg: 26 29 35; /* graphite-900 — fundo da página */
+  --bg-alt: 20 22 27; /* graphite-950 — seções alternadas */
+  --surface: 34 38 46; /* graphite-800 — cards, header, menus */
+  --line: 44 49 59; /* graphite-700 — bordas e divisores */
+  --ink: 255 255 255; /* títulos e texto de alto contraste */
+  --body-text: 226 232 240; /* slate-200 — texto padrão */
+  --muted: 203 213 225; /* slate-300 — parágrafos secundários */
+  --subtle: 148 163 184; /* slate-400 — legendas */
+  --faint: 148 163 184; /* slate-400 — rodapé/detalhes finos */
+  --accent-ink: 245 197 24; /* amarelo elétrico — ok como texto sobre fundo escuro */
+}
+
+:root[data-theme='light'] {
+  --bg: 250 250 249;
+  --bg-alt: 241 241 238;
+  --surface: 255 255 255;
+  --line: 224 224 219;
+  --ink: 26 29 35; /* graphite-900 — títulos escuros sobre fundo claro */
+  --body-text: 51 58 69;
+  --muted: 71 85 105; /* slate-600 */
+  --subtle: 100 116 139; /* slate-500 */
+  --faint: 100 116 139;
+  --accent-ink: 133 77 14; /* amarelo escurecido — mantém contraste AA no fundo claro */
+}
+
+/* Sem JavaScript: segue a preferência do sistema (a menos que o usuário já
+   tenha escolhido manualmente — nesse caso data-theme força o valor). */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --bg: 250 250 249;
+    --bg-alt: 241 241 238;
+    --surface: 255 255 255;
+    --line: 224 224 219;
+    --ink: 26 29 35;
+    --body-text: 51 58 69;
+    --muted: 71 85 105;
+    --subtle: 100 116 139;
+    --faint: 100 116 139;
+    --accent-ink: 133 77 14;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* compensa o header fixo ao pular para âncoras */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-page text-body font-sans antialiased transition-colors duration-200;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight text-ink;
+  }
+
+  /* Foco visível para navegação por teclado (links, botões, campos) */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-accent-ink rounded-sm;
+  }
+
+  /* respeita quem prefere menos animação */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Componentes reutilizáveis
+--------------------------------------------------------------------------- */
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Botão primário (amarelo elétrico) — min. 44px de altura p/ toque.
+     Fundo amarelo + texto grafite ficam fixos: funcionam nos dois temas. */
+  .btn-primary {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-electric px-6 py-3
+           font-display text-sm font-semibold text-graphite-950 shadow-soft
+           transition duration-200 hover:bg-electric-400 hover:shadow-glow
+           active:translate-y-px;
+  }
+
+  /* Botão secundário (contorno) */
+  .btn-ghost {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-line
+           bg-surface px-6 py-3 font-display text-sm font-semibold text-ink
+           transition duration-200 hover:border-electric/60
+           active:translate-y-px;
+  }
+
+  /* Botão flutuante de WhatsApp (conversão rápida) */
+  .whatsapp-fab {
+    @apply fixed bottom-5 right-5 z-40 inline-flex h-14 w-14 items-center justify-center
+           rounded-full bg-[#25D366] text-white shadow-soft transition duration-200
+           hover:scale-105 hover:shadow-glow sm:bottom-6 sm:right-6;
+  }
+
+  /* Botão de alternância de tema (claro/escuro) no header */
+  .theme-toggle {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line
+           text-body transition duration-200 hover:border-electric/60 hover:text-accent-ink;
+  }
+
+  /* Setas do carrossel da galeria */
+  .carousel-arrow {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-line
+           bg-surface text-body shadow-soft transition duration-200
+           hover:border-electric/60 hover:text-accent-ink
+           disabled:pointer-events-none disabled:opacity-40;
+  }
+
+  /* Cartão padrão */
+  .card {
+    @apply rounded-2xl border border-line bg-surface p-6 shadow-soft
+           transition duration-200 hover:border-electric/40;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-electric/30
+           bg-electric/5 px-3 py-1 font-display text-xs font-semibold uppercase
+           tracking-widest text-accent-ink;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Motivo visual de "circuito" — divisor de seção discreto
+--------------------------------------------------------------------------- */
+@layer utilities {
+  .circuit-divider {
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      transparent 0,
+      rgba(245, 197, 24, 0.15) 20%,
+      rgba(245, 197, 24, 0.35) 50%,
+      rgba(245, 197, 24, 0.15) 80%,
+      transparent 100%
+    );
+  }
+
+  /* pontinhos tipo "nós" de circuito no fundo, bem sutil */
+  .circuit-dots {
+    background-image: radial-gradient(rgba(245, 197, 24, 0.10) 1px, transparent 1.5px);
+    background-size: 26px 26px;
+  }
+}

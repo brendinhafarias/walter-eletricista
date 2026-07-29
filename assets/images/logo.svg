@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" role="img" aria-label="Walter Eletricista">
+  <title>Walter Eletricista</title>
+  <!-- LOGO PROVISÓRIO — substitua por um logo definitivo quando tiver. -->
+  <defs>
+    <style>
+      .wm-name { font-family: 'Sora', 'Segoe UI', system-ui, sans-serif; font-weight: 700; }
+      .wm-sub  { font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; font-weight: 600; letter-spacing: 3px; }
+    </style>
+  </defs>
+
+  <!-- Marca do raio dentro de um quadrado arredondado -->
+  <rect x="2" y="8" width="48" height="48" rx="12" fill="#F5C518"/>
+  <path d="M30 16 L18 36 h9 l-4 14 15-22 h-9 z" fill="#14161B"/>
+
+  <!-- Wordmark -->
+  <text class="wm-name" x="64" y="34" font-size="26" fill="#FFFFFF">WALTER</text>
+  <text class="wm-sub"  x="65" y="50" font-size="10" fill="#F5C518">ELETRICISTA</text>
+</svg>

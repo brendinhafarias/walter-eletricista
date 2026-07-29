@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+Thumbs.db
+
+# Fotos originais (não otimizadas) — as versões usadas no site ficam em assets/images
+fotos-originais/
